@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-injector>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{ doc-name | upper-case }</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            { HEADER | $(doc-name | capitalize) }
+            <p>
+                Stuff and possible link <a href="{ path }">Placename</a>
+                Abbrevation <i>lmao</i> means { lmao }.
+            </p>
+        </section>
+    </main>
+
+    <script src="data-injector.js"></script>
+    <script>
+        const data = {
+            "HEADER": `<header><h1>{$1}</h1></header>`,
+            "path": "./path-to-somewhere.html",
+            "doc-name": "document name",
+            "lmao": "laughing my ass off"
+        }
+        dataInjector.run(data)
+    </script>
+</body>
+
+</html>
